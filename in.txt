@@ -1,0 +1,2 @@
+Swamp,12
+Plain,12
