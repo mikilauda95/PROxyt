@@ -27,20 +27,20 @@ def main():
     inputFn = args.inputFn
     outputFn = args.outputFn
 
-    print "Starting %s" % (progName)
+    print("Starting %s" % (progName))
     startTime = float(time.time())
 
     if not os.path.isfile(inputFn):
-        print "Input doesn't exist, exiting"
+        print("Input doesn't exist, exiting")
         return
 
     outputBase = os.path.dirname(outputFn)
     if outputBase!='' and not os.path.exists(outputBase):
-        print "Output directory doesn't exist, making output dirs: %s" % (outputBase)
+        print("Output directory doesn't exist, making output dirs: %s" % (outputBase))
         os.makedirs(outputBase)
 
 
-    print "Finished in %0.4f seconds" % (time.time() - startTime)
+    print("Finished in %0.4f seconds" % (time.time() - startTime))
     return
 
 if __name__ == '__main__':
