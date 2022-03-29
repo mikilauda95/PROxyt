@@ -1,2 +1,4 @@
 Swamp,12
 Plain,12
+Force Of Will,4
+Faith's Fetters,4

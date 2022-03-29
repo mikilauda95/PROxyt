@@ -30,6 +30,30 @@ def ReadCardsFromCSV(file_name):
     print(c_list)
     return c_list
 
+def SanitizeNames(c_list):
+    sanitized_list = []
+    for c_row in c_list:
+        sanitized_num = c_row[1]
+        sanitized_name = c_row[0].lower()
+        sanitized_name = sanitized_name.replace(" ", "-")
+        sanitized_name = sanitized_name.replace("'", "")
+        sanitized_list.append([sanitized_name, sanitized_num])
+
+    print("Debugging SanitizeNames")
+    print(sanitized_list)
+
+    return sanitized_list
+
+def DownloadImages(c_list):
+    # Create Folder for downloading cards images
+    if not os.path.exists("images"):
+        os.makedirs("images")
+
+    # Download the cards one by one from the website
+    MAGIC_BASE_URL="https://www.magicspoiler.com/mtg-spoiler/"
+    c_list = SanitizeNames(c_list)
+
+
 def main():
     progName = "Template"
     args = doArgs(sys.argv[1:], progName)
@@ -55,6 +79,8 @@ def main():
     card_list = ReadCardsFromCSV(inputFn)
 
     # Search the image for each card in the list and put it in folder cards
+
+    DownloadImages(card_list)
 
     # Create PDF with all cards repeated by number
 
